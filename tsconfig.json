@@ -5,6 +5,7 @@
     "moduleResolution": "node",
     "lib": ["DOM", "ESNext"],
     "jsx": "react-jsx",
+    "types": ["@types/mdx"],
     // "allowUnreachableCode": false,
     "noEmit": true,
     "isolatedModules": true,

@@ -3,14 +3,17 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
+    entry: './src/index.tsx',
+    resolve: {
+        extensions: [".tsx", ".ts", ".js"]
+    },
     devServer: {
         static: path.resolve(__dirname, 'dist'),
         compress: true,
         port: 3000,
-        historyApiFallback: true, // Useful for single-page apps
-        open: true // Opens the browser after starting the server
+        historyApiFallback: true,
+        open: true
     },
-    entry: './src/index.tsx',
     mode: process.env.NODE_ENV === "production" ? "production" : "development",
     module: {
         rules: [
@@ -24,6 +27,7 @@ module.exports = {
             },
             {
                 test: /\.(?:js|ts|jsx|tsx)$/,
+                exclude: /node_modules/,
                 use: "babel-loader"
             }
         ]
@@ -32,8 +36,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
-    // plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
-    plugins: [new HtmlWebpackPlugin()],
+    plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
+    // plugins: [new HtmlWebpackPlugin()],
     optimization: {
         minimize: true,
         minimizer: [new TerserPlugin()]

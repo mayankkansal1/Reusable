@@ -1,3 +1,12 @@
-export const App = () => {
-  return <h1>React TypeScript WebPack Starter Template</h1>;
+import Button from "./Components/Button/Button";
+
+const Main = () => {
+  return (
+    <div>
+      Main world
+      <Button onClick={() => console.log("hi")}>Button</Button>
+    </div>
+  );
 };
+
+export default Main;
