@@ -23,60 +23,35 @@ export interface ButtonProps {
   onBlur?: React.FocusEventHandler<HTMLButtonElement>;
   onKeyDown?: React.KeyboardEventHandler<HTMLButtonElement>;
   onKeyUp?: React.KeyboardEventHandler<HTMLButtonElement>;
-  children?: React.ReactNode; // For button content
+  children?: React.ReactNode;
+  variant?: "primary" | "secondary" | "danger"
 }
 
 const StyledButton = styled.button<ButtonProps>`
-  /* Base styles */
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
+ padding: 10px 20px;
   border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+  opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
+  background-color: ${({ variant }) =>
+    variant === "primary"
+      ? "#2563eb"
+      : variant === "secondary"
+      ? "#4b5563"
+      : "#dc2626"};
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s;
 
-  /* Default styles */
-  background-color: ${(props) => (props.disabled ? "#ccc" : "#007bff")};
-  color: white;
-
-  /* Hover effect */
   &:hover {
-    background-color: ${(props) => (props.disabled ? "#ccc" : "#0056b3")};
+    background-color: ${({ variant }) =>
+      variant === "primary"
+        ? "#1e40af"
+        : variant === "secondary"
+        ? "#374151"
+        : "#b91c1c"};
   }
-
-  /* Disabled state */
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.7;
-  }
-
-  /* Additional styles based on props */
-  ${(props) =>
-    props.role === "menuitem" &&
-    `
-    background-color:rgb(133, 167, 40);
-    &:hover {
-      background-color:rgb(83, 136, 33);
-    }
-  `}
-
-  ${(props) =>
-    props.type === "submit" &&
-    `
-    background-color: #28a745;
-    &:hover {
-      background-color: #218838;
-    }
-  `}
-
-  ${(props) =>
-    props.type === "reset" &&
-    `
-    background-color: #dc3545;
-    &:hover {
-      background-color: #c82333;
-    }
-  `}
 `;
 const Button: React.FC<ButtonProps> = ({
   type = "button",
@@ -101,6 +76,7 @@ const Button: React.FC<ButtonProps> = ({
   onKeyDown,
   onKeyUp,
   children,
+  variant = "primary"
 }) => {
   return (
     <StyledButton
@@ -125,6 +101,7 @@ const Button: React.FC<ButtonProps> = ({
       onBlur={onBlur}
       onKeyDown={onKeyDown}
       onKeyUp={onKeyUp}
+      variant={variant}
     >
       {children}
     </StyledButton>
