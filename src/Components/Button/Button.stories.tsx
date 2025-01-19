@@ -1,7 +1,7 @@
-// src/stories/Button.stories.tsx
 import React from "react";
+// src/stories/Button.stories.tsx
 import Button from "./Button"; // Adjust the import path as needed
-import { Meta, StoryFn } from "@storybook/react";
+import { StoryFn } from "@storybook/react";
 import { ButtonProps } from "./Button"; // Adjust the import path
 
 export default {

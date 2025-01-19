@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@types/mdx": "^2.0.13",
+    "class-variance-authority": "^0.7.1",
     "lucide-react": "^0.471.1",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",

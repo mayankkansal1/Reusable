@@ -37,7 +37,6 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
-    // plugins: [new HtmlWebpackPlugin()],
     optimization: {
         minimize: true,
         minimizer: [new TerserPlugin()]
