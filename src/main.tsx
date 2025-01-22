@@ -4,6 +4,8 @@ import Input from "./Components/Input/Input";
 import Select from "./Components/Select/Select";
 import PasswordInput from "./Components/Input/PasswordInput";
 import SearchInput from "./Components/Input/SearchInput";
+import Textarea from "./Components/Input/Textarea";
+import NumberInput from "./Components/Input/NumberInput";
 
 const Main = () => {
   return (
@@ -44,6 +46,11 @@ const Main = () => {
         ]}
         // disabled
         />
+        <Textarea
+        rows={3}
+        onChange={(e)=>console.log(e.target.value)}
+        />
+        <NumberInput/>
         {/* <PasswordInput/> */}
     </div>
   );

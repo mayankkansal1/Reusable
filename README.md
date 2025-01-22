@@ -2,11 +2,11 @@
 Reusable Components
 
 1. Inputs
-Text Input: For entering plain text (e.g., name, email).
-Password Input: For entering secure text (e.g., passwords).
+Text Input: For entering plain text (e.g., name, email). Done
+Password Input: For entering secure text (e.g., passwords). Done
 Number Input: For numeric values with min and max validation.
-Textarea: For multi-line input.
-Search Input: Includes a search icon and clear functionality.
+Textarea: For multi-line input. Done
+Search Input: Includes a search icon and clear functionality. Done
 
 2. Selects
 Dropdown Select: For choosing a single value from a list.

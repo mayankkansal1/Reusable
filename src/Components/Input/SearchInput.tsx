@@ -19,6 +19,7 @@ const SearchInput = (props: InputProps) => {
           width: "fit-content",
           ...props.style, // Merge any additional styles passed via props
         }}
+        type="search"
         placeholder="Search"
       />
       <Search style={{
